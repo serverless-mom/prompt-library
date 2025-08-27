@@ -7,11 +7,11 @@ const posts = (await getCollection('library'))
   .filter(post => !post.data.draft);
 ---
 
-<BaseLayout title="Posts">
+<BaseLayout title="Prompts">
   <div class="posts">
-    <h1 class="posts-title">Posts</h1>
+    <h1 class="posts-title">Prompts</h1>
     {posts.length === 0 ? (
-      <p>No posts yet. Check back soon!</p>
+      <p>No prompts yet. Check back soon!</p>
     ) : (
       posts.map((post) => <PostCard post={post} />)
     )}

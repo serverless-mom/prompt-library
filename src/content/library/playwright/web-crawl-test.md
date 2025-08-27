@@ -21,5 +21,5 @@ You are given a scenario and need to generate Playwright tests for it.
 
 ## User Input
 
-Generate Playwright tests by crawling [YOUR-WEBSITE].com and checking that a use can browse listed products.
+Generate Playwright tests by crawling [YOUR-WEBSITE].com and checking that a user can browse listed products.
 ```

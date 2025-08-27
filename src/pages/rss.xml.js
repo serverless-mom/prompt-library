@@ -5,8 +5,8 @@ export async function GET(context) {
   const posts = (await getCollection('library'))
     .filter(post => !post.data.draft);
   return rss({
-    title: 'Astro Terminal Theme',
-    description: 'A terminal-inspired theme for Astro',
+    title: 'Monitoring Prompts by Checkly',
+    description: 'Monitoring Prompts by Checkly',
     site: context.site,
     items: posts.map((post) => ({
       title: post.data.title,
