@@ -38,9 +38,6 @@ This site is constructed using modern web technologies:
 
 - **[Astro](https://astro.build/)** - Static site generator for blazing-fast performance
 - **[astro-theme-terminal](https://github.com/dennisklappe/astro-theme-terminal)** - Terminal-inspired theme
-- **TypeScript** - Type-safe development
-- **Content Collections** - Structured content management
-- **CSS Grid & Flexbox** - Modern responsive layouts
 
 ### Theme Credits
 
@@ -89,10 +86,5 @@ We welcome contributions! Whether you want to:
 
 Please feel free to open issues or submit pull requests.
 
-## 📄 License
 
-This project is licensed under the MIT License. The original Hugo Terminal Theme design is credited to panr, and the Astro port to Dennis Klappe.
-
----
-
-**A Checkly Project** - Empowering developers to build better monitoring solutions with AI assistance.
+**A Checkly Project** - Empowering developers to build better monitoring solutions by shifting left with AI assistance.
