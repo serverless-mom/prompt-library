@@ -5,7 +5,25 @@ icon: 📝
 tags: ["AI", "Playwright"]
 ---
 
-This prompt requires that you've given your agent access to the Playwright MCP, [follow the setup steps here](https://serverless-mom.github.io/prompt-library/posts/checkly/setup/).
+This prompt requires that you've given your agent access to the Playwright MCP. In general, adding the following to your AI agent's configuration JSON is enough to enable your tool to use the Playwright MCP:
+
+```json
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest"
+      ]
+    }
+  }
+}
+
+```
+
+But specific agents will have their own commands:
+
+Refer to the [Playwright MCP install](https://github.com/microsoft/playwright-mcp) commands for specific setup instructions. 
 
 ```markdown
 You are a Playwright test generator and an expert in TypeScript, Frontend development, and Playwright end-to-end testing.
