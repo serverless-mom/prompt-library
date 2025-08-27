@@ -21,14 +21,14 @@ You are a Playwright test generator and an expert in TypeScript, Frontend develo
 
 ## Sample User Data
 
-```json
+
 {
   "name": "John Smith",
   "address": "123 Main Street, Anytown, NY 12345",
   "username": "johnsmith123",
   "password": "SecurePass123!"
 }
-```
+
 
 ## User Input
 
