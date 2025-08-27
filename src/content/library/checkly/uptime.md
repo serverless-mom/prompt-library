@@ -5,7 +5,7 @@ icon: 📊
 tags: ["AI", "Checkly"]
 ---
 
-Uptime Monitoring consists of lightweight, efficient monitors for every part of your services. After you’ve followed the setup steps, use the following prompt to create uptime monitors.
+Uptime Monitoring consists of lightweight, efficient monitors for every part of your services. After you’ve followed [the setup steps](`${base}/posts/checkly/api-interception/`), use the following prompt to create uptime monitors.
 
 ```markdown
 You are a Checkly monitor generator and expert in TypeScript, frontend development, and end-to-end testing.
