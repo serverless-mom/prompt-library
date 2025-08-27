@@ -2,6 +2,8 @@
 
 A curated collection of AI prompts for web monitoring, testing, and observability using Checkly and Playwright. This library provides ready-to-use prompts that help you create comprehensive monitoring solutions for your applications.
 
+## [On GitHub Pages Here](https://serverless-mom.github.io/prompt-library/)
+
 ## 🎯 Purpose
 
 This site serves as a prompt library specifically designed for developers and DevOps engineers who want to implement monitoring solutions using AI-powered tools. Each prompt is crafted to work with Claude and other AI assistants to generate monitoring code, tests, and observability solutions.
