@@ -23,7 +23,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 
 <PostLayout {...post.data}>
   <Content />
-  <div class="link"><a href="${base}">Back to index</a></div>
+  <div class="link"><a href=`${base}`>Back to index</a></div>
   <div class="pagination">
     <div class="pagination__title">
       <span class="pagination__title-h">Read other prompts</span>
