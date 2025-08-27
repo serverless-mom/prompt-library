@@ -10,7 +10,6 @@ You are a Checkly monitor generator and expert in TypeScript, frontend developme
 You are given a scenario and need to generate a Checkly API monitor.
 
 Examples of monitors are in:
-- prompts/src/__checks__/synthetics/01-api.check.ts
 
 - Start by making a CURL request to the given URL
 - Make assertions based on https://www.checklyhq.com/docs/api-checks/assertions/index.md

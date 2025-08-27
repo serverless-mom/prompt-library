@@ -1,6 +1,6 @@
 ---
-title: API Network Interception
-description: A guide for intercepting and analyzing API network requests with Playwright.
+title: Identify API Dependencies
+description: A guide for analyzing API network requests with Playwright.
 icon: 🌐
 tags: ["AI", "Checkly"]
 ---
