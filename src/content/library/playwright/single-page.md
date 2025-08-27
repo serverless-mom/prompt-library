@@ -2,6 +2,7 @@
 title: Write a Test for a Single Page
 description: Generate Playwright tests for single page interface verification and validation.
 icon: 📄
+sticker: Your first PWT test
 tags: ["AI", "Playwright"]
 ---
 This prompt requires that you've given your agent access to the Playwright MCP. In general, adding the following to your AI agent's configuration JSON is enough to enable your tool to use the Playwright MCP:

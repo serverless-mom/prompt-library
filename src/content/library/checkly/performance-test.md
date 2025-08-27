@@ -2,6 +2,7 @@
 title: Performance Testing
 description: Measure page performance and component load times with Playwright and Checkly.
 icon: ⚡
+sticker: "Why is it slow???"
 tags: ["AI", "Checkly"]
 ---
 This prompt requires that you've given your agent access to the Playwright MCP, [follow the setup steps here](https://serverless-mom.github.io/prompt-library/posts/checkly/setup/).

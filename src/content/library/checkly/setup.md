@@ -2,6 +2,7 @@
 title: Checkly Setup
 description: Step-by-step guide to setting up Checkly monitoring with Playwright MCP.
 icon: ⚙️
+sticker: "Start here!"
 tags: ["AI", "Checkly"]
 ---
 
