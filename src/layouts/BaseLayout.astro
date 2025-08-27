@@ -133,7 +133,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 
 <style is:global>
   /* Import all CSS files in the correct order */
-  @import "../styles/terminal.css";
+  @import "${import.meta.env.BASE_URL}/styles/terminal.css";
   @import "../styles/fonts.css";
   @import "../styles/main.css";
   @import "../styles/header.css";
