@@ -10,6 +10,45 @@ const posts = (await getCollection('library'))
     if (b.data.title === 'Checkly Setup') return 1
     return 0
   })
+
+// Define theme colors for random sticker colors
+const themeColors = [
+  '#32858b', // accent
+  '#22c55e', // checkly green 
+  '#8b5cf6', // playwright purple
+  '#eab308', // yellow variant
+  '#f97316', // orange variant
+  '#ef4444', // red variant
+  '#06b6d4', // cyan variant
+  '#10b981', // emerald variant
+]
+
+// Function to get a random color that's different from others by at least 10% in brightness
+function getRandomStickerColor(usedColors: string[] = []) {
+  const availableColors = themeColors.filter(color => {
+    if (usedColors.length === 0) return true
+    
+    // Simple brightness calculation
+    const getBrightness = (hex: string) => {
+      const r = parseInt(hex.slice(1, 3), 16)
+      const g = parseInt(hex.slice(3, 5), 16)
+      const b = parseInt(hex.slice(5, 7), 16)
+      return (r * 299 + g * 587 + b * 114) / 1000
+    }
+    
+    const colorBrightness = getBrightness(color)
+    return usedColors.every(used => {
+      const usedBrightness = getBrightness(used)
+      return Math.abs(colorBrightness - usedBrightness) / 255 > 0.1 // 10% difference
+    })
+  })
+  
+  return availableColors.length > 0 
+    ? availableColors[Math.floor(Math.random() * availableColors.length)]
+    : themeColors[Math.floor(Math.random() * themeColors.length)]
+}
+
+const usedStickerColors: string[] = []
 const base = import.meta.env.BASE_URL.endsWith('/')
   ? import.meta.env.BASE_URL
   : import.meta.env.BASE_URL + '/'
@@ -45,10 +84,17 @@ const base = import.meta.env.BASE_URL.endsWith('/')
         const hasChecklyTag = post.data.tags?.includes('Checkly')
         const hasPlaywrightTag = post.data.tags?.includes('Playwright')
 
+        // Get random color for sticker if it has one
+        let stickerColor = '#32858b' // default
+        if (post.data.sticker) {
+          stickerColor = getRandomStickerColor(usedStickerColors)
+          usedStickerColors.push(stickerColor)
+        }
+
         return (
           <article class="card" data-tags={post.data.tags?.join(',') || ''}>
             {post.data.sticker && (
-              <div class="start-here-sticker" style={`transform: rotate(${-12 + (Math.random() * 2 - 1)}deg)`}>{post.data.sticker}</div>
+              <div class="start-here-sticker" style={`transform: rotate(${-12 + (Math.random() * 2 - 1)}deg); background: ${stickerColor}; border-color: ${stickerColor};`}>{post.data.sticker}</div>
             )}
             <div class="card-header">
               <div class="card-icon">
