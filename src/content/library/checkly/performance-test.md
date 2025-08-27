@@ -4,6 +4,8 @@ description: Measure page performance and component load times with Playwright a
 icon: ⚡
 tags: ["AI", "Checkly"]
 ---
+This prompt requires that you've given your agent access to the Playwright MCP, [follow the setup steps here](https://serverless-mom.github.io/prompt-library/posts/checkly/setup/).
+
 ```markdown
 You are tasked with measuring page performance with Playwright. You are a Playwright test generator and expert in TypeScript, frontend development, and Playwright end-to-end testing.
 

@@ -7,6 +7,8 @@ tags: ["AI", "Checkly"]
 
 If you’re monitoring back end APIs or performing request interception, it can be useful to know exactly what APIs the page relies on. Use the following prompt to analyze network traffic with your AI agent.
 
+This prompt requires that you've given your agent access to the Playwright MCP, [follow the setup steps here](https://serverless-mom.github.io/prompt-library/posts/checkly/setup/).
+
 ```markdown
 You are a Playwright network analysis expert specializing in TypeScript, frontend development, and Playwright end-to-end testing.
 

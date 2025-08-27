@@ -13,7 +13,8 @@ You are given a scenario and need to generate a Checkly monitor for it.
 - The check will be a multistep check, consisting of several Playwright API tests in sequence
 - Do not generate tests based on assumptions
 - Start with a CURL request against the given API endpoint
-- After writing a *.spec.ts Playwright script, generate a Checkly config file, based on prompts/src/__checks__/synthetics/06-multi-step-api.check.ts
+- After writing a *.spec.ts Playwright script, generate a Checkly config file for multistep checks in the form of *.check.ts
+- if needed, consult the construct rules for a multistep check: https://www.checklyhq.com/docs/cli/constructs-reference/#multistepcheck
 - When the test is generated, always test and verify the generated code using `npx checkly test` and fix any issues
 
 ## Memories and Best Practices
