@@ -3,9 +3,8 @@ import { getCollection } from 'astro:content';
 import PostLayout from '../../layouts/PostLayout.astro';
 
 export async function getStaticPaths() {
-  const posts = (await getCollection('posts'))
-    .filter(post => !post.data.draft)
-    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  const posts = (await getCollection('library'))
+    .filter(post => !post.data.draft);
   
   return posts.map((post, index) => ({
     params: { slug: post.slug },
@@ -24,10 +23,10 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
 
 <PostLayout {...post.data}>
   <Content />
-  
+  <div class="link"><a href="/">Back to index</a></div>
   <div class="pagination">
     <div class="pagination__title">
-      <span class="pagination__title-h">Read other posts</span>
+      <span class="pagination__title-h">Read other prompts</span>
       <hr />
     </div>
     <div class="pagination__buttons">

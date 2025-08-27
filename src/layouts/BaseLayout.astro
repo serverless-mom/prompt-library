@@ -5,7 +5,7 @@ export interface Props {
   image?: string;
 }
 
-const { title, description = 'A terminal-inspired Astro theme', image } = Astro.props;
+const { title, description = 'Monitoring Prompts by Checkly', image } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
 ---
@@ -44,7 +44,7 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
           <div class="header__logo">
             <a href={base}>
               <div class="logo">
-                Terminal
+                Monitoring Prompts by Checkly
               </div>
             </a>
           </div>
@@ -52,36 +52,14 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
             <li class="menu__trigger">Menu ▾</li>
             <li>
               <ul class="menu__dropdown">
-                <li><a href={`${base}about/`}>About</a></li>
-                <li><a href={`${base}posts/showcase/`}>Showcase</a></li>
-                <li><a href={`${base}posts/`}>Posts</a></li>
+                <li><a href={`${base}posts/`}>Prompts</a></li>
                 <li><a href={`${base}tags/`}>Tags</a></li>
-                <li><a href={`${base}posts/rich-content/`}>Rich Content</a></li>
-                <li><a href={`${base}posts/code-blocks-examples/`}>Code Examples</a></li>
               </ul>
             </li>
           </ul>
         </div>
         
-        <nav class="navigation-menu">
-          <ul class="navigation-menu__inner menu--desktop">
-            <li><a href={`${base}about/`}>About</a></li>
-            <li><a href={`${base}posts/showcase/`}>Showcase</a></li>
-            <li>
-              <ul class="menu">
-                <li class="menu__trigger">Show more ▾</li>
-                <li>
-                  <ul class="menu__dropdown">
-                    <li><a href={`${base}posts/`}>Posts</a></li>
-                    <li><a href={`${base}tags/`}>Tags</a></li>
-                    <li><a href={`${base}posts/rich-content/`}>Rich Content</a></li>
-                    <li><a href={`${base}posts/code-blocks-examples/`}>Code Examples</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
+
       </header>
       
       <main class="content">
@@ -91,11 +69,9 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
       <footer class="footer">
         <div class="footer__inner">
           <div class="copyright">
-            <span>© 2025 Powered by <a href="https://astro.build">Astro</a></span>
+            <span>© 2025 A <a href="https://www.checklyhq.com/">Checkly</a> project</span>
             <span class="separator">::</span>
-            <span>Theme made by <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">panr</a></span>
-            <span class="separator">::</span>
-            <span>Ported by <a href="https://github.com/dennisklappe">Dennis Klappe</a></span>
+            <span>Theme by <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">panr</a> and <a href="https://github.com/dennisklappe">Dennis Klappe</a></span>
           </div>
         </div>
       </footer>
@@ -168,6 +144,4 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
   @import "../styles/pagination.css";
   @import "../styles/code.css";
   @import "../styles/syntax.css";
-  @import "../styles/gist.css";
-  @import "../styles/terms.css";
 </style>

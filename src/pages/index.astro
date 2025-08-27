@@ -1,29 +1,132 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PostCard from '../components/PostCard.astro';
-import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { getCollection } from 'astro:content'
 
-const posts = (await getCollection('posts'))
-  .filter(post => !post.data.draft)
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const posts = (await getCollection('library')).filter(
+  (post) => !post.data.draft
+)
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : import.meta.env.BASE_URL + '/'
 ---
 
-<BaseLayout title="Terminal">
+<BaseLayout title="Monitoring Prompts Library">
   <div class="index-content framed">
-    <h1 id="hello-there">Hello there!</h1>
-    <p>Welcome to the Astro Terminal theme! This is a port of the popular Hugo Terminal theme by panr, bringing the same retro terminal aesthetic to Astro.</p>
+    <pre
+      id="hello-there"
+      style="color: var(--accent); font-size: calc(var(--font-size) * 0.9); line-height: 1.2; margin: 20px 0;">
+                                                   ___ 
+ |\/|  _  ._  o _|_  _  ._        o _|_ |_     /\   |  
+ |  | (_) | | |  |_ (_) |    \/\/ |  |_ | |   /--\ _|_ 
+</pre>
+    <h1 style="margin-top: 0; display: none;">Monitoring Prompts</h1>
     <p>
-      You can customise the colour scheme using panr's <a href="https://panr.github.io/terminal-css/"><strong>Terminal.css</strong></a> 
-      generator - all generated schemes are fully compatible with this theme.
+      Explore our collection of AI prompts for Checkly and Playwright testing
+      tools.
     </p>
-    <p>
-      <a href="https://panr.github.io/terminal-css/">
-        <img src="https://panr.github.io/hugo-theme-terminal-demo/img/terminal-css.png" alt="Terminal.css Preview" />
-      </a>
-    </p>
+
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="Checkly">Checkly</button>
+      <button class="filter-btn" data-filter="Playwright">Playwright</button>
+    </div>
   </div>
-  
-  <div class="posts">
-    {posts.map((post) => <PostCard post={post} />)}
+
+  <div class="cards-grid">
+    {
+      posts.map((post) => {
+        const postUrl = post.data.externalLink || `${base}posts/${post.slug}/`
+        const isExternal = !!post.data.externalLink
+        const hasChecklyTag = post.data.tags?.includes('Checkly')
+        const hasPlaywrightTag = post.data.tags?.includes('Playwright')
+
+        return (
+          <article class="card" data-tags={post.data.tags?.join(',') || ''}>
+            <div class="card-header">
+              <div class="card-icon">
+                {post.data.icon ? (
+                  <span class={hasChecklyTag ? 'icon-checkly' : hasPlaywrightTag ? 'icon-playwright' : 'icon-default'}>
+                    {post.data.icon}
+                  </span>
+                ) : (
+                  <>
+                    {hasChecklyTag && <span class="icon-checkly">✓</span>}
+                    {hasPlaywrightTag && <span class="icon-playwright">🎭</span>}
+                  </>
+                )}
+              </div>
+              <div class="card-tags">
+                {post.data.tags &&
+                  post.data.tags.map((tag) => (
+                    <span class="tag" data-tag={tag}>
+                      {tag}
+                    </span>
+                  ))}
+              </div>
+            </div>
+
+            <div class="card-content">
+              <h3 class="card-title">
+                <a
+                  href={postUrl}
+                  target={isExternal ? '_blank' : undefined}
+                  rel={isExternal ? 'noopener' : undefined}
+                >
+                  {post.data.title}
+                </a>
+              </h3>
+              {post.data.description && (
+                <p class="card-description">{post.data.description}</p>
+              )}
+            </div>
+
+            <div class="card-footer">
+              <a
+                href={postUrl}
+                class="read-more-btn"
+                target={isExternal ? '_blank' : undefined}
+                rel={isExternal ? 'noopener' : undefined}
+              >
+                Read More →
+              </a>
+            </div>
+          </article>
+        )
+      })
+    }
   </div>
 </BaseLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const filterButtons = document.querySelectorAll('.filter-btn')
+    const cards = document.querySelectorAll('.card')
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', function (event) {
+        const target = event.currentTarget as HTMLElement
+        const filter = target.getAttribute('data-filter')
+
+        // Update active button
+        filterButtons.forEach((btn) => btn.classList.remove('active'))
+        target.classList.add('active')
+
+        // Filter cards
+        cards.forEach((card) => {
+          const cardElement = card as HTMLElement
+          const tags = cardElement.getAttribute('data-tags') || ''
+
+          if (filter === 'all') {
+            cardElement.style.display = 'block'
+          } else {
+            if (tags.includes(filter || '')) {
+              cardElement.style.display = 'block'
+            } else {
+              cardElement.style.display = 'none'
+            }
+          }
+        })
+      })
+    })
+  })
+</script>
